@@ -4,7 +4,7 @@
   "description": "Node.js, Express, MongoDB, Html, Css.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "cros-env PORT = 3001 node index.js",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AntonGoncharov1999/Diplom_progect#readme",
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-node": "^8.0.1"
   },
@@ -28,6 +29,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongose": "0.0.2-security"
   }
 }
