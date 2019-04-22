@@ -1,0 +1,31 @@
+{
+  "name": "Diplom_progect",
+  "version": "1.0.0",
+  "description": "Node.js, Express, MongoDB, Html, Css.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonGoncharov1999/Diplom_progect.git"
+  },
+  "keywords": [],
+  "author": "AntonGoncharov1999",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonGoncharov1999/Diplom_progect/issues"
+  },
+  "homepage": "https://github.com/AntonGoncharov1999/Diplom_progect#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
