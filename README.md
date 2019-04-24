@@ -21,3 +21,6 @@ add model bd post.
 
 #commit 7 (24.04.2019)
 add static file.
+
+#commit 8 (25.04.2019)
+add frontend to registration / autorization 
