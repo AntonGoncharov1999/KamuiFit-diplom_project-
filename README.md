@@ -15,3 +15,6 @@ Full rebild progect (creat version 2.0.0).
 
 #commit 5 (24.04.2019)
 Debug connect to database. 
+
+#commit 6 (24.04.2019)
+add model bd post.

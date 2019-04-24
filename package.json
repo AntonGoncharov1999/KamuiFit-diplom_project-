@@ -1,6 +1,7 @@
 {
   "name": "blog",
-  "version": "2.1.0",
+  "version": "2.1.5",
+  "author": "Anton Goncharov 'https://github.com/AntonGoncharov1999'",
   "license": "MIT",
   "scripts": {
     "start": "cross-env PORT=3001 node index.js",
