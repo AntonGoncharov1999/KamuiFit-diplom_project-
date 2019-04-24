@@ -18,3 +18,6 @@ Debug connect to database.
 
 #commit 6 (24.04.2019)
 add model bd post.
+
+#commit 7 (24.04.2019)
+add static file.

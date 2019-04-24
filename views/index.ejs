@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-
-<body>
+<% include layout/header.ejs %>
   <a href="/create">Add</a>
   <ul>
     <% posts.forEach(function(post){ %>
@@ -16,6 +8,4 @@
       </li>
       <% }); %>
   </ul>
-</body>
-
-</html>
+<% include layout/footer.ejs %>
