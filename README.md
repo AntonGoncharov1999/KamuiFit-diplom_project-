@@ -12,3 +12,6 @@ Add mongoBD.
 
 #commit 4 (23.04.2019)
 Full rebild progect (creat version 2.0.0). 
+
+#commit 5 (24.04.2019)
+Debug connect to database. 
