@@ -1,11 +1,11 @@
 {
   "name": "blog",
-  "version": "2.2.5",
+  "version": "3.0.0",
   "author": "Anton Goncharov 'https://github.com/AntonGoncharov1999'",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env PORT=3001 node index.js",
-    "dev": "cross-env PORT=3000 nodemon index.js"
+    "start": " node app.js",
+    "dev": " nodemon app.js"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -17,6 +17,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jquery": "^3.4.0",

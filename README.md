@@ -27,3 +27,7 @@ add frontend to registration / autorization
 
 # commit 9 (25.04.2019)
 add glavpeaper main page.
+
+# commit 10 (25.04.2019)
+add error handler
+rebild datadase
