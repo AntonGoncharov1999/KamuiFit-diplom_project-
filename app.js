@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const Post = require('./models/post');
+const User = require('./models/user');
 const mongoose = require('mongoose');
 const config = require('./config');
 
@@ -47,6 +48,35 @@ app.post('/create', (req, res) => {
   }).then(post => console.log(post.id));
   res.redirect('/');
 });
+app.post('/registration', (req, res)=> {
+  const {login, password, two_pass, mail}= req.body;
+  var next = "0";
+
+  if(login == " " || password == " " || mail == " " || two_pass == " "){
+    next = "Заполните все поля";
+    console.log(next);
+    res.redirect('/registration');
+  }
+  else if(login == "" || password == "" || mail == "" || two_pass == ""){
+    next = "Заполните все поля";
+    console.log(next);
+    res.redirect('/registration');
+  }
+  else if(password != two_pass){
+    next = "Пароли не совпадают";
+    console.log(next);
+    res.redirect('/registration');
+  }
+  else if(next = "0"){
+    User.create({
+      Login:login,
+      Password:password,
+      Email: mail
+    }).then(User => console.log(User.id));
+    res.redirect('/');
+  }
+});
+
 
 // catch 404 and orward to error handler
 app.use((req, res, next) =>{

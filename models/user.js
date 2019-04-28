@@ -2,23 +2,22 @@ const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 const schema = new Schema({
-    login:{
-        type:String,
-        required:true
+    Login:{
+        type: String,
+        required: true
     },
-    password:{
-        type:String,
-        required:true
+    Password:{
+        type: String,
+        required: true
     },
-    email:{
-        type:String,
-        required:true
+    Email:{
+        type: String,
+        required: true
     }
 },
-{
-    timestamps:true 
-}
-);
+{ 
+  timestamps:true  
+});
 
 schema.set('toJSON',{
     virtuals:true
