@@ -1,26 +1,25 @@
-const mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const schema = new Schema({
-    Login:{
-        type: String,
-        required: true
+const schema = new Schema(
+  {
+    login: {
+      type: String,
+      required: true,
+      unique: true
     },
-    Password:{
-        type: String,
-        required: true
-    },
-    Email:{
-        type: String,
-        required: true
+    password: {
+      type: String,
+      required: true
     }
-},
-{ 
-  timestamps:true  
-});
+  },
+  {
+    timestamps: true
+  }
+);
 
-schema.set('toJSON',{
-    virtuals:true
-})
+schema.set('toJSON', {
+  virtuals: true
+});
 
 module.exports = mongoose.model('User', schema);
