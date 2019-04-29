@@ -1,43 +1,10 @@
 <% include layout/header.ejs %>
-  <img src="/images/WALAP.png" class="fon" alt="">
-  <header>
-    <div class="nav">
-        <div class="item">
-          <a href="">О клубе</a>
-          <a href=""> Команда</a>
-          <a href="">Программы</a>
-        </div>
-        <div class="item">
-          <img src="/images/logo.png" alt="">
-        </div>
-        <div class="item">
-          <a href="">Цены</a>
-          <a href="">Новости</a>
-          <a href="/autorization">Вход/Регистрация</a>
-
-        </div>
-    </div>
-  </header>
-  <div class="content">
-    <div class="card">
-        <img src="/images/logo.png" alt="">
-    </div>
-    <div class="card">
-        <img src="/images/logo.png" alt="">
-    </div>
-    <div class="card">
-        <img src="/images/logo.png" alt="">
-    </div>
-  </div>
-  <footer>
-    <div>
-      <p>Партнёры</p>
-    </div>
-    <div>
-      <img src="/images/logo.png" alt="">
-    </div>
-    <div>
-      Правила
-    </div>
-  </footer>
-<% include layout/footer.ejs %>
+  <section class="header">
+    <video autoplay loop class="video-background" muted plays-inline>
+      <source src="/videos/background.mp4" type="video/mp4">
+    </video>
+    <form class="box" method="post">
+      <% include layout/reg.ejs %>
+    </form>
+  </section>
+<% include layout/end.ejs %>

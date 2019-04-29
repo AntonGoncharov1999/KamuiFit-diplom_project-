@@ -1,93 +1,62 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const Post = require('./models/post');
-const User = require('./models/user');
+const staticAsset = require('static-asset');
 const mongoose = require('mongoose');
-const config = require('./config');
 
-//database
+const config = require('./config');
+const routes = require('./routes');
+
+// database
 mongoose.Promise = global.Promise;
 mongoose.set('debug', config.IS_PRODUCTION);
-
 mongoose.connection
   .on('error', error => console.log(error))
   .on('close', () => console.log('Database connection closed.'))
-  .once('open', () =>{
+  .once('open', () => {
     const info = mongoose.connections[0];
     console.log(`Connected to ${info.host}:${info.port}/${info.name}`);
   });
-
 mongoose.connect(config.MONGO_URL, { useMongoClient: true });
 
-//express
+// express
 const app = express();
 
-//sets end uses
+// sets and uses
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(staticAsset(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/javascripts', express.static(path.join(__dirname,'node_modules', 'jquery', 'dist')));
+app.use(
+  '/javascripts',
+  express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist'))
+);
 
-//get request
+// routers
+app.get('/registration', (req, res) => {
+  res.render('index');
+});
 app.get('/', (req, res) => {
-  Post.find({}).then(posts =>{
-    res.render('index', { posts:posts })
-  });
+  res.render('start');
 });
-app.get('/create', (req, res) => res.render('create'));
-app.get('/registration', (req, res) => res.render('registration'));
-app.get('/autorization', (req, res) => res.render('autorization'));
-
-//post request
-app.post('/create', (req, res) => {
-  const {title,body}= req.body;
-  Post.create({
-    title:title,
-    body:body
-  }).then(post => console.log(post.id));
-  res.redirect('/');
-});
-app.post('/registration', (req, res)=> {
-  const {login, password, two_pass, mail}= req.body;
-  var next = "0";
-
-  if(login == " " || password == " " || mail == " " || two_pass == " "){
-    next = "Заполните все поля";
-    console.log(next);
-    res.redirect('/registration');
-  }
-  else if(login == "" || password == "" || mail == "" || two_pass == ""){
-    next = "Заполните все поля";
-    console.log(next);
-    res.redirect('/registration');
-  }
-  else if(password != two_pass){
-    next = "Пароли не совпадают";
-    console.log(next);
-    res.redirect('/registration');
-  }
-  else if(next = "0"){
-    User.create({
-      Login:login,
-      Password:password,
-      Email: mail
-    }).then(User => console.log(User.id));
-    res.redirect('/');
-  }
+app.get('/autorization', (req, res) => {
+  res.render('autorization')
 });
 
 
-// catch 404 and orward to error handler
-app.use((req, res, next) =>{
-  const err = new Erorr('Not Found');
+app.use('/api/auth', routes.auth);
+
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-// eslint-dlisable-next-line no-unused-vars
-app.use((error, req, res, next) =>{
+// eslint-disable-next-line no-unused-vars
+app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.render('error', {
     message: error.message,
@@ -95,7 +64,6 @@ app.use((error, req, res, next) =>{
   });
 });
 
-//start server
 app.listen(config.PORT, () =>
   console.log(`Example app listening on port ${config.PORT}!`)
 );
