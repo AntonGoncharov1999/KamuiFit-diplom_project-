@@ -32,7 +32,10 @@ add glavpeaper main page.
 add error handler. rebild datadase.
 
 # commit 11 (28.04.2019)
-add registration (надо добавить проверку на наличее в бд такого пользователя).
+add registration (!) надо добавить проверку на наличее в бд такого пользователя.
 
 # commit 12 (29.04.2019)
 rebild registration routes (немного перераспределил проект)
+
+# commit 13 (30.04.2019)
+add autorization (!) посматреть что там не так с куками после авторизации

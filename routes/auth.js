@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt-nodejs');
 
 const models = require('../models');
 
-// POST is authorized
+// POST is registration
 router.post('/register', (req, res) => {
   const login = req.body.login;
   const password = req.body.password;
@@ -57,6 +57,8 @@ router.post('/register', (req, res) => {
           })
             .then(user => {
               console.log(user);
+              req.session.userId = user.id;
+              req.session.userLogin = user.login;
               res.json({
                 ok: true
               });
@@ -76,6 +78,60 @@ router.post('/register', (req, res) => {
           fields: ['login']
         });
       }
+    });
+  }
+});
+
+// POST is registration
+router.post('/login', (req, res)=> {
+  //console.log(req.body);
+  const login = req.body.login;
+  const password = req.body.password;
+
+  if (!login || !password) {
+    const fields = [];
+    if (!login) fields.push('login');
+    if (!password) fields.push('password');
+    res.json({
+      ok: false,
+      error: 'Все поля должны быть заполнены!',
+      fields
+    });
+  } else{
+    console.log("vse ok");
+    models.User.findOne({
+      login
+    }).then(user =>{
+      if(!user){
+        res.json({
+          ok: false,
+          error: "Не верный логин или пароль",
+          fields: ['login', 'password']
+        });
+      } else{
+        bcrypt.compare(password, user.password, function(err, result){
+          console.log(result, ": проежай");
+          if(!result){
+            res.json({
+              ok: false,
+              error: "Не верный логин или пароль",
+              fields: ['login', 'password']
+            });
+          }else{
+            req.session.userId = user.id;
+            req.session.userLogin = user.login;
+            res.json({
+              ok:true
+            });
+          }
+        });
+      }
+    }).catch(err => {
+      console.log(err);
+      res.json({
+        ok: false,
+        error: 'Ошибка, попробуйте позже!'
+      });
     });
   }
 });
