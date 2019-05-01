@@ -51,10 +51,10 @@ app.get('/registration', (req, res) => {
 app.get('/', (req, res) => {
   const id = req.session.userId;
   const login = req.session.userLogin; 
-  res.render('start', {
+  res.render('start', {user:{
     id,
     login
-  });
+  }});
 });
 app.get('/autorization', (req, res) => {
   res.render('autorization')

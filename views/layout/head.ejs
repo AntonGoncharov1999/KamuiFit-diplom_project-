@@ -1,5 +1,10 @@
 <header>
     <div class="nav">
+        <% if (!user.id || !user.login){ %>
+          <p class="hello"></p>
+        <% } else{ %>
+          <p class="hello">hello <%= user.login %> </p>
+        <% } %>
         <div class="item">
           <a href="">О клубе</a>
           <a href=""> Команда</a>
@@ -11,7 +16,11 @@
         <div class="item">
           <a href="">Цены</a>
           <a href="">Новости</a>
-          <a href="/autorization">Вход/Регистрация</a>
+          <% if (!user.id || !user.login) { %>
+            <a href="/autorization">Вход/Регистрация</a>
+          <% } else { %>
+            <a href="/api/auth/logout">Выход</a>
+          <% } %>
         </div>
     </div>
 </header>
