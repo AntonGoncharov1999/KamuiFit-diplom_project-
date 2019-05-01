@@ -73,6 +73,13 @@ app.post('/createPost', (req, res)=>{
   }).then(post => console.log(post.id));
   res.redirect('/');
 });
+app.get('/news', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  Post.find({}).then( posts =>{
+    res.render('news', { posts:posts ,user: { id, login } });
+  });
+});
 
 
 app.use('/api/auth', routes.auth);

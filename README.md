@@ -45,3 +45,6 @@ add logout end debug session (-v 4.5)
 
 # commit 15 (1.05.2019)
 add create post end admin panel
+
+# commit 16 (1.05.2019)
+add news peapers
