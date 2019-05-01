@@ -40,5 +40,5 @@ rebild registration routes (немного перераспределил про
 # commit 13 (30.04.2019)
 add autorization (!) посматреть что там не так с куками после авторизации
 
-# commit 14 (30.04.2019)
-add logout end debug session
+# commit 14 (1.05.2019)
+add logout end debug session (-v 4.5)
