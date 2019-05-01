@@ -47,7 +47,7 @@ add logout end debug session (-v 4.5)
 add create post end admin panel
 
 # commit 16 (1.05.2019)
-add news peapers
+add news peapers (-v 4.8)
 
-# commit 16 (1.05.2019)
+# commit 17 (1.05.2019)
 add get reqests (-v 4.8.1)
