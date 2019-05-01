@@ -18,6 +18,8 @@
           <a href="">Новости</a>
           <% if (!user.id || !user.login) { %>
             <a href="/autorization">Вход/Регистрация</a>
+          <% } else if (user.id == "5cc920f41717053a70a4a510") { %>
+            <a href="/api/auth/logout">Выход из админки</a>
           <% } else { %>
             <a href="/api/auth/logout">Выход</a>
           <% } %>

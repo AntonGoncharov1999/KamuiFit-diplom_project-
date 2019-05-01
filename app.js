@@ -9,6 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const config = require('./config');
 const routes = require('./routes');
+const Post = require('./models/post');
 
 // database
 mongoose.Promise = global.Promise;
@@ -58,6 +59,19 @@ app.get('/', (req, res) => {
 });
 app.get('/autorization', (req, res) => {
   res.render('autorization')
+});
+app.get('/createPost', (req, res)=>{
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('create', { user: { id, login } });
+});
+app.post('/createPost', (req, res)=>{
+  const {title,body}= req.body;
+  Post.create({
+    title:title,
+    body:body
+  }).then(post => console.log(post.id));
+  res.redirect('/');
 });
 
 

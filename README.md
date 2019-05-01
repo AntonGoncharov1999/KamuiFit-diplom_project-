@@ -42,3 +42,6 @@ add autorization (!) посматреть что там не так с кука�
 
 # commit 14 (1.05.2019)
 add logout end debug session (-v 4.5)
+
+# commit 15 (1.05.2019)
+add create post end admin panel
