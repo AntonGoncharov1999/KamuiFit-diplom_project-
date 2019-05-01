@@ -6,22 +6,23 @@
           <p class="hello">hello <%= user.login %> </p>
         <% } %>
         <div class="item">
-          <a href="">О клубе</a>
-          <a href=""> Команда</a>
-          <a href="">Программы</a>
+          <a href="/cloub" class="hov" >О клубе</a>
+          <a href="/comand" class="hov" > Команда</a>
+          <a href="/program" class="hov" >Программы</a>
         </div>
         <div class="item">
-          <img src="/images/logo.png" alt="">
+          <a href="/" ><img src="/images/logo.png" alt=""></a> 
         </div>
         <div class="item">
-          <a href="">Цены</a>
-          <a href="">Новости</a>
+          <a href="/prais" class="hov" >Цены</a>
+          <a href="/news" class="hov" >Новости</a>
           <% if (!user.id || !user.login) { %>
-            <a href="/autorization">Вход/Регистрация</a>
+            <a href="/autorization" class="hov" >Вход/Регистрация</a>
           <% } else if (user.id == "5cc920f41717053a70a4a510") { %>
-            <a href="/api/auth/logout">Выход из админки</a>
+            <a href="/api/auth/logout" class="hov" >Выход из админки</a>
+            <a href="/createPost" class="hov" > Создать пост </a>
           <% } else { %>
-            <a href="/api/auth/logout">Выход</a>
+            <a href="/api/auth/logout" class="hov" >Выход</a>
           <% } %>
         </div>
     </div>

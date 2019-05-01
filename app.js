@@ -80,6 +80,27 @@ app.get('/news', (req, res) => {
     res.render('news', { posts:posts ,user: { id, login } });
   });
 });
+app.get('/prais', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('prais', { user: { id, login } });
+});
+app.get('/cloub', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('cloub', { user: { id, login } });
+});
+app.get('/comand', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('comand', { user: { id, login } });
+});
+app.get('/program', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('program', { user: { id, login } });
+});
+
 
 
 app.use('/api/auth', routes.auth);

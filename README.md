@@ -48,3 +48,6 @@ add create post end admin panel
 
 # commit 16 (1.05.2019)
 add news peapers
+
+# commit 16 (1.05.2019)
+add get reqests (-v 4.8.1)
