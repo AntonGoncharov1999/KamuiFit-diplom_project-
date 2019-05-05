@@ -3,5 +3,13 @@
 
     <h1>prais</h1>
 
+    <h1>Клубные карты</h1>
+    <% cards.forEach(function(card){ %>
+        <div class="cards"> 
+            <h2> <%= card.title %> </h2> 
+            <p> <%= card.body %> </p> 
+            <h3> <%= card.cost %> </h3> 
+        </div>
+    <% }); %>
     <% include layout/footer.ejs %>
 <% include layout/end.ejs %>

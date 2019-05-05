@@ -6,18 +6,11 @@ body{
     display: flex;
     flex-direction: column;
 }
-form a{
+form a,h2,label{
 	text-decoration: none;
 	color: white;
 }
-form h2{
-	text-decoration: none;
-	color: white;
-}
-form label{
-	text-decoration: none;
-	color: white;
-}
+
 footer{
     border-top: 2px solid white;
     display: flex;
@@ -60,9 +53,8 @@ footer img{
     color: white;
     font-size: 20px;
 }
-.nav .hov:hover{
+.hov:hover{
     color: saddlebrown;
-    border-bottom: 2px solid saddlebrown;
 }
 .item img{
     height: 150px;
@@ -79,7 +71,7 @@ footer img{
     margin-top: 14%;
     margin-bottom: 14%;
     border-radius: 50%;
-    background: rgba(1, 0, 0, 0.5);
+    background: rgba(1, 0, 0, 0);
     height: 250px;
     width: 250px;
     display: flex;
@@ -88,7 +80,7 @@ footer img{
     color: aliceblue;
 }
 .card:hover{
-    background:rgba(0, 0, 0, 0);;
+    background:rgba(0, 0, 0, 0.5);;
 }
 
 .header{
@@ -105,7 +97,6 @@ footer img{
 	min-height: 100%;
 	left: 50%;
 	top: 50%;
-	z-index: -1;
 	transform: translate(-50%, -50%);
 	z-index: -1; /*наложение элементов друг на друга(нужен абсолют)*/
 }

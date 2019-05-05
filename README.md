@@ -51,3 +51,6 @@ add news peapers (-v 4.8)
 
 # commit 17 (1.05.2019)
 add get reqests (-v 4.8.1)
+
+# commit 18 (05.05.2019)
+add cloub_card rebild models (-v 4.8.5) 

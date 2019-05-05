@@ -11,6 +11,9 @@ const schema = new Schema(
     password: {
       type: String,
       required: true
+    },
+    card_id:{
+      type: String
     }
   },
   {

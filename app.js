@@ -9,7 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const config = require('./config');
 const routes = require('./routes');
-const Post = require('./models/post');
+const datab = require('./models/index')
 
 // database
 mongoose.Promise = global.Promise;
@@ -33,9 +33,9 @@ app.use(session({
   saveUninitialized: true,
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
+    })
   })
-}));
-
+);
 
 // sets and uses
 app.set('view engine', 'ejs');
@@ -67,23 +67,39 @@ app.get('/createPost', (req, res)=>{
 });
 app.post('/createPost', (req, res)=>{
   const {title,body}= req.body;
-  Post.create({
+  datab.Post.create({
     title:title,
     body:body
   }).then(post => console.log(post.id));
   res.redirect('/');
 });
+app.get('/createCard', (req, res)=>{
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('createCard', { user: { id, login } });
+});
+app.post('/createCard', (req, res)=>{
+  const {title,body,cost}= req.body;
+  datab.Card.create({
+    title:title,
+    body:body,
+    cost:cost
+  }).then(card => console.log(card.id));
+  res.redirect('/');
+});
 app.get('/news', (req, res) => {
   const id = req.session.userId;
   const login = req.session.userLogin;
-  Post.find({}).then( posts =>{
-    res.render('news', { posts:posts ,user: { id, login } });
+  datab.Post.find({}).then( posts =>{
+    res.render('news', { posts:posts, user: { id, login } });
   });
 });
 app.get('/prais', (req, res) => {
   const id = req.session.userId;
   const login = req.session.userLogin;
-  res.render('prais', { user: { id, login } });
+  datab.Card.find({}).then( cards =>{
+    res.render('prais', { cards:cards, user: { id, login } });
+  });
 });
 app.get('/cloub', (req, res) => {
   const id = req.session.userId;
@@ -100,8 +116,6 @@ app.get('/program', (req, res) => {
   const login = req.session.userLogin;
   res.render('program', { user: { id, login } });
 });
-
-
 
 app.use('/api/auth', routes.auth);
 
