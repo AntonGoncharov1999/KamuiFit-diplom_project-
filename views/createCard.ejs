@@ -1,12 +1,23 @@
 <% include layout/header.ejs %>
     <% include layout/head.ejs %>
+    <img src="/images/samurai-les-vsadnik-ubiistvo-bryzgi.jpg" alt="" class="backgroundImg">
     <% if(user.id == "5cc920f41717053a70a4a510") { %>
-        <form method="post">
-            <input type="text" name="title"> <br>
-            <textarea name="body" cols="30" rows="10"></textarea> <br>
-            <button type="submit">Submit</button> <br>
-            <input type="number" name="cost">
-        </form>
+        <div class="boxCard">
+            <form method="post" class="CardCreate">
+                <div class="items title">
+                    <input type="text" name="title" class="input w" placeholder="Заголовок" >    
+                </div>
+                <div class="items">
+                    <textarea name="body" class="text" cols="30" rows="15" placeholder="Возможности" ></textarea>
+                </div>
+                <div class="items">
+                    <input type="number" name="cost" placeholder="Цена" class="input" > <br>
+                    <button type="submit" class="but" >Создать</button>
+                </div>
+            </form>
+        </div>
+            
+
     <% } else{ %>
         <h1>У вас нет прав сдесь находится</h1>
     <% } %>

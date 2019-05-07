@@ -54,3 +54,6 @@ add get reqests (-v 4.8.1)
 
 # commit 18 (05.05.2019)
 add cloub_card rebild models (-v 4.8.5) 
+
+# commit 19 (07.05.2019)
+add design create Post end CloubCard (-v 4.8.7)

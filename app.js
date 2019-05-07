@@ -65,6 +65,7 @@ app.get('/createPost', (req, res)=>{
   const login = req.session.userLogin;
   res.render('create', { user: { id, login } });
 });
+
 app.post('/createPost', (req, res)=>{
   const {title,body}= req.body;
   datab.Post.create({
@@ -73,6 +74,7 @@ app.post('/createPost', (req, res)=>{
   }).then(post => console.log(post.id));
   res.redirect('/');
 });
+
 app.get('/createCard', (req, res)=>{
   const id = req.session.userId;
   const login = req.session.userLogin;

@@ -91,7 +91,7 @@ footer img{
 
 }
 
-.video-background{
+.background{
 	position: absolute;
 	min-width: 100%;
 	min-height: 100%;
@@ -156,4 +156,83 @@ footer img{
 
 .hello{
 	color: #2ecc71;
+}
+
+/* createCard end createPost*/
+.boxCard{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.CardCreate{
+	height: 500px;
+	width: 800px;
+	margin-top: 65px;
+	margin-bottom: 65px; 
+	border-radius: 50px;
+	background-image: url('/images/by.jpg');
+	background-size: cover;
+}
+
+.items {
+	display: flex;
+	justify-content: space-around;
+}
+.but{
+	border: 0;
+	background: none;
+	display: block;
+	text-align:center;
+	border: 2px solid #2ecc71;
+	padding: 14px 10px;
+	width: 200px;
+	height: 50px;
+	margin-top: 20px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	cursor:pointer;
+}
+
+.input{
+	border: 0;
+	background: rgba(0,0,0,0.7);
+	display: block;
+	margin-top: 20px;
+	text-align:center;
+	border: 2px solid #3498db;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+}
+
+.backgroundImg{
+	position: fixed;
+	min-width: 100%;
+	min-height: 100%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1; /*наложение элементов друг на друга(нужен абсолют)*/
+}
+
+.text{
+	width: 80%;
+	border: 0;
+	background: rgba(0,0,0,0.7);
+	display: block;
+	margin-top: 10%;
+	text-align:center;
+	border: 2px solid #3498db;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	resize: none;
+}
+
+.w{
+	width: 500px;
 }
