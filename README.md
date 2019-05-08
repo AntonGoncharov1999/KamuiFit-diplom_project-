@@ -57,3 +57,6 @@ add cloub_card rebild models (-v 4.8.5)
 
 # commit 19 (07.05.2019)
 add design create Post end CloubCard (-v 4.8.7)
+
+# commit 20 (08.05.2019)
+add remove post
