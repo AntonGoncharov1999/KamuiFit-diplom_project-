@@ -148,4 +148,18 @@ router.get('/logout', (req, res) => {
   }
 });
 
+// remove
+
+router.post('/news', (req, res)=>{
+  const {id} = req.body;
+  console.log(id);
+  
+  models.Post.findOneAndRemove(id,(err,doc)=>{
+    if(err) return console.log(err);
+    console.log(id);
+    console.log("Удалена запись ", doc);
+  });
+  res.redirect('/news');
+});
+
 module.exports = router;

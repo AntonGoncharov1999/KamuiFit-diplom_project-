@@ -1,14 +1,19 @@
 <% include layout/header.ejs %>
     <% include layout/head.ejs %>
-
+    <img src="/images/1500x500.jpg" class="backgroundImg" alt="">
     <div class="container_news">
 
         <% if(user.id == "5cc920f41717053a70a4a510") { %>
             <h1>в скором будующем появица возможность администрирования</h1>
             <% posts.forEach(function(post){ %>
                 <div class="card_news">
+                    <h1><%= post.id %></h1>
                     <h1><%= post.title %></h1> 
                     <p><%= post.body %></p>
+                    <form method="post">
+                        <button type="submit" class="but remove ">Удалить</button>
+                        <textarea name="id" id="id" cols="30" rows="1" class="vis" ><%= post.title %></textarea> 
+                    </form>
                 </div>
             <% }); %>
         <% } else{ %>

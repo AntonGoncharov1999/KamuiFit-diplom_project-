@@ -236,3 +236,26 @@ footer img{
 .w{
 	width: 500px;
 }
+
+/*news*/
+.container_news{
+	display: flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items: center;
+}
+.card_news{
+	margin-top: 26px;
+	width: 80%;
+	background: rgba(0,0,0,0.7);
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	color: aliceblue;
+	border-radius: 30px;
+	border: aliceblue solid 1px;
+}
+
+/*.vis{
+	visibility: hidden;
+}*/

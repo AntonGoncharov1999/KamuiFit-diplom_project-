@@ -45,10 +45,11 @@ app.use(staticAsset(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/javascripts',express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
 
-// routers
+// Get
 app.get('/registration', (req, res) => {
   res.render('index');
 });
+
 app.get('/', (req, res) => {
   const id = req.session.userId;
   const login = req.session.userLogin; 
@@ -57,15 +58,58 @@ app.get('/', (req, res) => {
     login
   }});
 });
+
 app.get('/autorization', (req, res) => {
   res.render('autorization')
 });
+
 app.get('/createPost', (req, res)=>{
   const id = req.session.userId;
   const login = req.session.userLogin;
   res.render('create', { user: { id, login } });
 });
 
+app.get('/createCard', (req, res)=>{
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('createCard', { user: { id, login } });
+});
+
+app.get('/news', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  datab.Post.find({}).then( posts =>{
+    res.render('news', { posts:posts, user: { id, login } });
+  });
+});
+
+app.get('/prais', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  datab.Card.find({}).then( cards =>{
+    res.render('prais', { cards:cards, user: { id, login } });
+  });
+});
+
+app.get('/cloub', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('cloub', { user: { id, login } });
+});
+
+app.get('/comand', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('comand', { user: { id, login } });
+});
+
+app.get('/program', (req, res) => {
+  const id = req.session.userId;
+  const login = req.session.userLogin;
+  res.render('program', { user: { id, login } });
+});
+
+//Post
 app.post('/createPost', (req, res)=>{
   const {title,body}= req.body;
   datab.Post.create({
@@ -75,11 +119,6 @@ app.post('/createPost', (req, res)=>{
   res.redirect('/');
 });
 
-app.get('/createCard', (req, res)=>{
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-  res.render('createCard', { user: { id, login } });
-});
 app.post('/createCard', (req, res)=>{
   const {title,body,cost}= req.body;
   datab.Card.create({
@@ -89,35 +128,13 @@ app.post('/createCard', (req, res)=>{
   }).then(card => console.log(card.id));
   res.redirect('/');
 });
-app.get('/news', (req, res) => {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-  datab.Post.find({}).then( posts =>{
-    res.render('news', { posts:posts, user: { id, login } });
-  });
+
+app.post('/news', (req, res)=>{
+  const {id}= req.body;
+  console.log(id);
 });
-app.get('/prais', (req, res) => {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-  datab.Card.find({}).then( cards =>{
-    res.render('prais', { cards:cards, user: { id, login } });
-  });
-});
-app.get('/cloub', (req, res) => {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-  res.render('cloub', { user: { id, login } });
-});
-app.get('/comand', (req, res) => {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-  res.render('comand', { user: { id, login } });
-});
-app.get('/program', (req, res) => {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-  res.render('program', { user: { id, login } });
-});
+
+
 
 app.use('/api/auth', routes.auth);
 
