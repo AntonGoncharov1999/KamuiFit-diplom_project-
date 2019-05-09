@@ -60,3 +60,6 @@ add design create Post end CloubCard (-v 4.8.7)
 
 # commit 20 (08.05.2019)
 add remove post
+
+# commit 21 (07.05.2019)
+add design prise (-v 4.8.10)

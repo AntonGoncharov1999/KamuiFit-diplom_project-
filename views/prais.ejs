@@ -1,15 +1,73 @@
 <% include layout/header.ejs %>
     <% include layout/head.ejs %>
-
-    <h1>prais</h1>
-
-    <h1>Клубные карты</h1>
-    <% cards.forEach(function(card){ %>
-        <div class="cards"> 
-            <h2> <%= card.title %> </h2> 
-            <p> <%= card.body %> </p> 
-            <h3> <%= card.cost %> </h3> 
+    <img src="/images/1500x500.jpg" class="backgroundImg" alt="">
+    <div class="prise">
+        <div class="item_prise">
+            <h1>Студенты/Школьники</h1>
+            <h2>Дневной 08:00/17:30</h2>
+            <ul>
+                <li>Разовое занятие 250 руб</li>
+                <li>8 занятий 800 руб</li>
+                <li>10 занятий 1100</li>
+                <li>12 занятий 1200</li>
+            </ul>
+            <h2>Весь день 08:00/22:00</h2>
+            <ul>
+                <li>Разовое занятие 300 руб</li>
+                <li>8 занятий 1100 руб</li>
+                <li>10 занятий 1400</li>
+                <li>12 занятий 1600</li>
+            </ul>
         </div>
-    <% }); %>
+        <div class="item_prise">
+            <h1>Обычный</h1>
+            <h2>Дневной 08:00/17:30</h2>
+            <ul>
+                <li>Разовое занятие 250 руб</li>
+                <li>8 занятий 1100 руб</li>
+                <li>10 занятий 1400</li>
+                <li>12 занятий 1600</li>
+            </ul>
+            <h2>Весь день 08:00/22:00</h2>
+            <ul>
+                <li>Разовое занятие 300 руб</li>
+                <li>8 занятий 1300 руб</li>
+                <li>10 занятий 1600</li>
+                <li>12 занятий 1800</li>
+            </ul>
+        </div> 
+        <div class="item_prise">
+            <h1>С тренером</h1>
+            <h2>персонал тренеровка</h2>
+            <ul>
+                <li>Разовое занятие 650 руб</li>
+                <li>8 занятий 4000 руб</li>
+                <li>12 занятий 4800</li>
+            </ul>
+            <h2>групповая тренеровка</h2>
+            <ul>
+                <li>Разовое занятие 650 руб</li>
+                <li>8 занятий 3600 руб</li>
+                <li>12 занятий 4200</li>
+            </ul>
+        </div> 
+    </div>
+    <h1 class="center">Клубные карты</h1>
+    <div class="cloub_cards">
+        <% cards.forEach(function(card){ %>
+            <div class="cardc">
+				<div class="front front_images">
+					<div class="textc">
+						<p class="name"><%= card.title %></p>
+						<p><%= card.cost %> руб</p>
+					</div>
+				</div>
+				<div class="back">
+					<h1><%= card.body %></h1>
+				</div>
+			</div>
+        <% }); %>
+    </div>
+    
     <% include layout/footer.ejs %>
 <% include layout/end.ejs %>

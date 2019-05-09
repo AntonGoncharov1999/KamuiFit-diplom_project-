@@ -245,7 +245,8 @@ footer img{
 	align-items: center;
 }
 .card_news{
-	margin-top: 26px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	width: 80%;
 	background: rgba(0,0,0,0.7);
 	display: flex;
@@ -256,6 +257,114 @@ footer img{
 	border: aliceblue solid 1px;
 }
 
-/*.vis{
+.vis{
 	visibility: hidden;
-}*/
+}
+
+/* prise */
+
+.prise{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 50px; 
+}
+
+.item_prise{
+	background: rgba(0,0,0,0.7);
+	width: 30%;
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
+	border: #3498db 2px solid; 
+}
+
+.item_prise ul, h1{
+	color: aliceblue;
+}
+
+.center{
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	color: #000;
+}
+
+/* cloub card */
+.cloub_cards{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px; 
+}
+
+.cardc{
+	position: absolute;
+	width: 520px;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	perspective: 1000px;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+.front, .back{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 1s;
+	backface-visibility: hidden;
+	border-radius: 10px;
+}
+.front{
+	background: #fff;
+}
+
+.front_images{
+	background: url("/images/by.jpg");
+	background-size: cover;
+}
+
+.front .textc{
+	background: rgba(10, 10, 10, 0.70);
+	margin-top: 200px;
+	color: #fff;
+	width: 100%;
+}
+.textc p{
+	display: flex;
+	justify-content: center;
+}
+.textc .name{
+	border-bottom: 1px solid #fff;
+}
+
+.back{
+	color: #fff;
+	background: #000;
+	transform: rotateY(180deg);
+	justify-content: center;
+	flex-direction:column;
+}
+
+.back h1{
+	margin-left: 50px;
+}
+
+.cardc:hover .front{
+	transform: rotateY(180deg);
+
+}
+
+.cardc:hover .back{
+	transform: rotateY(360deg);
+
+}
