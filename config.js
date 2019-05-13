@@ -10,3 +10,5 @@ module.exports = {
   SESSION_SECRET: process.env.SESSION_SECRET,
   IS_PRODUCTION: process.env.NODE_ENV === 'production'
 };
+
+//mongodb+srv://anton:9080668852@kamuifit-ldzee.azure.mongodb.net/test?retryWrites=true

@@ -105,10 +105,10 @@ app.get('/otzev', (req, res) => {
   });
 });
 
-app.get('/program', (req, res) => {
+app.get('/comand', (req, res) => {
   const id = req.session.userId;
   const login = req.session.userLogin;
-  res.render('program', { user: { id, login } });
+  res.render('comand', { user: { id, login } });
 });
 
 //Post
