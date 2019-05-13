@@ -9,10 +9,6 @@
                     <h1><%= post.id %></h1>
                     <h1><%= post.title %></h1> 
                     <p><%= post.body %></p>
-                    <form method="post">
-                        <button type="submit" class="but remove ">Удалить</button>
-                        <textarea name="id" id="id" cols="30" rows="1" class="vis" ><%= post.title %></textarea> 
-                    </form>
                 </div>
             <% }); %>
         <% } else{ %>

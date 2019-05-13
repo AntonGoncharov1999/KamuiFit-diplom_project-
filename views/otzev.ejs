@@ -1,0 +1,25 @@
+<% include layout/header.ejs %>
+    <% include layout/head.ejs %>
+    <img src="/images/1500x500.jpg" class="backgroundImg" alt="">
+        <h1 class="center">Отзывы пользователей</h1>
+
+        <div class="otzev_list center">
+            <% otzevs.forEach(function(otzev){ %>
+                <div class="otzev bg center ">
+                    <h1><%= otzev.autor %></h1> 
+                    <p><%= otzev.body %></p>
+                </div>
+            <% }); %>
+        </div>
+        
+        <% if(!user.id) { %>
+            <h1>Авторизируйтесь для того чтобы оставить отзыв</h1>
+        <% } else{ %>
+            <form class="center" method="POST">
+                <textarea name="body" class="text" cols="30" rows="10"></textarea>
+                <button type="submit" class="but" >Отправить</button>
+            </form>
+        <% } %>
+
+    <% include layout/footer.ejs %>
+<% include layout/end.ejs %>

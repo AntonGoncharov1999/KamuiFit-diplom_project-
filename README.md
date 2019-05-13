@@ -63,3 +63,6 @@ add remove post
 
 # commit 21 (07.05.2019)
 add design prise (-v 4.8.10)
+
+# commit 22 (13.05.2019)
+add otzev end delete function remove post (так как она работала не так как было задумана пока закаменчена возможно будет выведена с проэкта) (-v 4.9.0)

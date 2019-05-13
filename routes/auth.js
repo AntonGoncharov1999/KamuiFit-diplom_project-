@@ -149,7 +149,7 @@ router.get('/logout', (req, res) => {
 });
 
 // remove
-
+/*
 router.post('/news', (req, res)=>{
   const {id} = req.body;
   console.log(id);
@@ -161,5 +161,6 @@ router.post('/news', (req, res)=>{
   });
   res.redirect('/news');
 });
+*/
 
 module.exports = router;

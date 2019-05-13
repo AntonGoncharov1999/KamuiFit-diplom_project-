@@ -66,6 +66,7 @@ $(function() {
         });
      });
      //delete
+    /*
     $('.remove').on('click', function(e) {
       e.preventDefault();
   
@@ -79,8 +80,8 @@ $(function() {
         contentType: 'application/json',
         url: '/api/auth/news'
       });
-      
     });
+    */
   });
   
   /* eslint-enable no-undef */  

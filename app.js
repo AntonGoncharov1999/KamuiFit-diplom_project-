@@ -97,10 +97,12 @@ app.get('/cloub', (req, res) => {
   res.render('cloub', { user: { id, login } });
 });
 
-app.get('/comand', (req, res) => {
+app.get('/otzev', (req, res) => {
   const id = req.session.userId;
   const login = req.session.userLogin;
-  res.render('comand', { user: { id, login } });
+  datab.Otzev.find({}).then( otzevs =>{
+    res.render('otzev', { otzevs:otzevs, user: { id, login } });
+  });
 });
 
 app.get('/program', (req, res) => {
@@ -129,10 +131,22 @@ app.post('/createCard', (req, res)=>{
   res.redirect('/');
 });
 
+app.post('/otzev', (req,res)=>{
+  const {body} = req.body;
+  const autor = req.session.userLogin;
+  datab.Otzev.create({
+    body: body,
+    autor: autor
+  }).then(otzev => console.log(otzev.id));
+  res.redirect('/otzev');
+  console.log(body);
+})
+/*
 app.post('/news', (req, res)=>{
   const {id}= req.body;
   console.log(id);
 });
+*/
 
 
 
