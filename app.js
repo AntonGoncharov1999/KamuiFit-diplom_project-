@@ -108,10 +108,21 @@ app.get('/otzev', (req, res) => {
 app.get('/comand', (req, res) => {
   const id = req.session.userId;
   const login = req.session.userLogin;
-  res.render('comand', { user: { id, login } });
+  datab.Trener.find({}).then( trener =>{
+    res.render('comand', { trener:trener, user: { id, login } });
+  });
 });
 
 //Post
+app.post('/comand', (req,res)=>{
+  const {title,body}= req.body;
+  datab.Trener.create({
+    title:title,
+    body:body
+  }).then(trener => console.log(trener.id));
+  res.redirect('/');
+})
+
 app.post('/createPost', (req, res)=>{
   const {title,body}= req.body;
   datab.Post.create({

@@ -1,7 +1,35 @@
 <% include layout/header.ejs %>
     <% include layout/head.ejs %>
-
-    <h1>comanda</h1>
+    <img src="/images/1500x500.jpg" alt="" class="backgroundImg">
+    <h1 class="center" >Наша команда тренеров</h1>
+    <div class="content_trainer">
+        <% var i = '0'; %>
+        <% trener.forEach(function(item){ %>
+        
+            <div class="trener center">
+                <img src="/images/trener/<%= i %>.jpg" class="center" alt="">
+                <h2> <%= item.title %> </h2>
+                <div class="description center">
+                    <%= item.body%>
+                </div>
+            </div>
+            <% i++ %>
+        <% }); %>
+    </div>
+    <% if(user.id == "5cc920f41717053a70a4a510") { %>
+        <div class="content_trainer_add center">
+            <h1>Добавления нового тренера</h1>
+            <div class="trener center">
+                <img src="/images/samurai.jpg" class="center" alt="">
+                <p>после создания добавте в папку public/images/trainer <br> фото тренера по правилам описанным в README.txt</p>
+                <form method="post">
+                    <input type="text" name="title" class="input">
+                    <textarea name="body" class="text" id="" cols="30" rows="10"></textarea>
+                    <button type="submit" class="but center">Создать</button>
+                </form>
+            </div>
+        </div>
+    <% } %>
 
     <% include layout/footer.ejs %>
 <% include layout/end.ejs %>

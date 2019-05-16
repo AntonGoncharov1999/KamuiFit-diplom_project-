@@ -391,3 +391,46 @@ footer img{
 	border-radius: 24px; 
 
 }
+
+/*trener*/
+.content_trainer{
+	display: flex;
+	justify-content: space-around;
+}
+
+.trener img{
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	border: red solid 2px;
+	
+}
+.trener{
+	border: #3498db solid 2px; 
+	background: rgba(0,0,0,0.7);
+	border-radius: 24px;
+	color: aliceblue;
+}
+
+.trener p{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.trener input{
+	width: 100%;
+}
+.trener textarea{
+	width: 100%;
+}
+
+.description{
+	width: 250px;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: aliceblue;
+}
+.trener .but{
+	color: aliceblue;
+	margin-left: 30px;;
+}

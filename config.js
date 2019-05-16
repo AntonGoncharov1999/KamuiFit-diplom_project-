@@ -11,4 +11,3 @@ module.exports = {
   IS_PRODUCTION: process.env.NODE_ENV === 'production'
 };
 
-//mongodb+srv://anton:9080668852@kamuifit-ldzee.azure.mongodb.net/test?retryWrites=true
